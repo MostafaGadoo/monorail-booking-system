@@ -20,7 +20,7 @@ class Train {
     HashMap<Integer,String> temp = new HashMap< Integer,String> ();
     
     temp.put(1,"Sunday");
-    temp.put(2,"MOnday");
+    temp.put(2,"Monday");
     temp.put(3,"Tuesday");
     temp.put(4,"Wednesday");
     temp.put(5,"Thursday");
@@ -100,17 +100,17 @@ class Train {
         this.numberOfSeats = numberOfSeats;
     }
     
-    protected void setOperatingDay(int Days){
-    operatingdays = new HashMap < String, Integer> ();
-    int temp = Days;
-    
-    while(temp!=0){
-    int rem = temp%10;
-    String s = convertToDay.get(rem);
-    operatingdays.put(s,1);
-    temp = temp/10;
-    }
-    }
+//    protected void setOperatingDay(int Days){
+//    operatingdays = new HashMap < String, Integer> ();
+//    int temp = Days;
+//    
+//    while(temp!=0){
+//    int rem = temp%10;
+//    String s = convertToDay.get(rem);
+//    operatingdays.put(s,1);
+//    temp = temp/10;
+//    }
+//    }
     
     
     Train()

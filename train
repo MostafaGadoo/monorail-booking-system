@@ -1,5 +1,4 @@
 
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -94,8 +93,22 @@ class Train {
         this.numberOfSeats = numberOfSeats;
     }
     
-    protect void setOperatingDay(int Days){
+    protected void setOperatingDay(int Days){
+    operatingdays = new HashMap < String, Integer> ();
+    int temp = Days;
     
+    while(temp!=0){
+    int rem = temp%10;
+    String s = convertToDay.get(rem);
+    operatingdays.put(s,1);
+    temp = temp/10;
+    }
     }
     
+    
+    Train()
+    {
+    trainNumberGenerator++;
+    trainNumber = trainNumberGenerator;
+    };
 }

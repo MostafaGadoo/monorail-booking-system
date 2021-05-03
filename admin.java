@@ -3,7 +3,6 @@
 *   @Author Eyad Mostafa
 *
 */
-import java.util.HashMap;
 public class Admin extends User {
     public Admin(String username, String password, String firstName, String lastName) {
         super(username, password, firstName, lastName);
@@ -11,7 +10,7 @@ public class Admin extends User {
     }
 
     /*
-    * Functions for admin to manage the account (change username, password, first name and last name)
+    * Functions for admin to manage their accounts (change username, password, first name and last name)
     */
 
     public void changeAdminPassword(String password) {

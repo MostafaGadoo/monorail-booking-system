@@ -34,9 +34,9 @@ public class User{
         return password;
     }
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 }

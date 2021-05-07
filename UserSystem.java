@@ -61,6 +61,7 @@ public class UserSystem {
         System.out.println("7- Update Train");
         System.out.println("8- Generate Report");
         Scanner input = new Scanner(System.in);
+        option = input.nextInt();
         while(option != -1) {
             switch(option) {
                 case 1:
@@ -107,13 +108,90 @@ public class UserSystem {
         System.out.println("6- Remove Train");
         System.out.println("7- Update Train");
         System.out.println("8- Generate Report");
-        input.close();
+        option = input.nextInt();
         }
+    input.close();
     }
 
 
-    /*
-    * Passenger options function will go here
-    */
+    public void passengerOptions(Passenger passengerUser) {
+        int option = 0;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please select one of the following options or enter -1 to exit");
+        System.out.println("1- Book a ticket");
+        System.out.println("2- Change seat for most recent ticket booked");
+        System.out.println("3- Print ticket list");
+        System.out.println("4- Change your username");
+        System.out.println("5- Change your password");
+        System.out.println("6- Change your first name");
+        System.out.println("7- Change your last name");
+        option = input.nextInt();
+        while(option != -1) {
+            switch(option) {
+                case 1: 
+                    String origin, end;
+                    int seatno;
+                    double fare;
+                    System.out.println("Enter origin, end, seat number and fare for ticket respectively");
+                    origin = input.nextLine();
+                    end = input.nextLine();
+                    seatno = input.nextInt();
+                    fare = input.nextDouble();
+                    passengerUser.bookTicket(origin, end, seatno, fare);
+                    break;
+                case 2:
+                    int num;
+                    System.out.println("Enter new seat number to update it for your most recently booked ticket");
+                    num = input.nextInt();
+                    passengerUser.changeSeat(num);
+                    break;
+                case 3:
+                    passengerUser.printTicketList();
+                    break;
+                case 4:
+                    System.out.println("Please enter your new username");
+                    String username;
+                    username = input.nextLine();
+                    passengerUser.changePassengerUsername(username);
+                    break;
+                case 5:
+                    System.out.println("Please enter your new password");
+                    String password;
+                    password = input.nextLine();
+                    passengerUser.changePassengerPassword(password);
+                    break;
+                    
+                case 6:
+                System.out.println("Please enter your first name");
+                String fname;
+                fname = input.nextLine();
+                passengerUser.changePassFirstName(fname);
+                break;
+                
+                case 7:
+                    System.out.println("Please enter your new password");
+                    String lname;
+                    lname = input.nextLine();
+                    passengerUser.changePassLastName(lname);
+                    break;
+                default:
+                    System.out.println("Invalid number entered please try again");
+                    break;
+
+
+                }
+        System.out.println("Please select one of the following options or enter -1 to exit");
+        System.out.println("1- Book a ticket");
+        System.out.println("2- Change seat for most recent ticket booked");
+        System.out.println("3- Print ticket list");
+        System.out.println("4- Change your username");
+        System.out.println("5- Change your password");
+        System.out.println("6- Change your first name");
+        System.out.println("7- Change your last name");
+        option = input.nextInt();
+            }
+            input.close();
+    }
+    
 
 }

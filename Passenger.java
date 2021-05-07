@@ -42,6 +42,7 @@ public class Passenger extends User {
         ticketObj = ticketsArr.get(ticketsArr.size() - 1);
         ticketObj.setSeatNumber(seatno);
         ticketsArr.set(ticketsArr.size() - 1, ticketObj);
+        System.out.println("Seat updated successfully");
     }
     /*
     *   Functions for passenger to update booking, select seat and cancel booking will be implemented here

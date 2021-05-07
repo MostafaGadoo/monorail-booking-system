@@ -79,13 +79,13 @@ public class UserSystem {
                 String fname;
                 System.out.println("Please enter new first name");
                 fname = input.nextLine();
-                adminUser.changeFirstName(fname);
+                adminUser.changeAdFirstName(fname);
                 break;
                 case 4:
                 String lname;
                 System.out.println("Please enter new last name");
                 lname = input.nextLine();
-                adminUser.changeLastName(lname);
+                adminUser.changeAdLastName(lname);
                 break;
                 /* case 5:
                 *  case 6:

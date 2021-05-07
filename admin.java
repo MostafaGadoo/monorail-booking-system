@@ -85,10 +85,10 @@ TrainNumber=S1.nextInt();
     public void changeAdminUsername(String username) {
         setUsername(username);
     }
-    public void changeFirstName(String firstName) {
+    public void changeAdFirstName(String firstName) {
         setFirstName(firstName);
     }
-    public void changeLastName(String lastName) {
+    public void changeAdLastName(String lastName) {
         setLastName(lastName);
     }
 }

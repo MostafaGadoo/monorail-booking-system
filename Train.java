@@ -1,7 +1,9 @@
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,74 +16,91 @@ import java.util.Map;
  * @author Mostafa Gado
  */
 class Train {
-    static final Map<Integer,String> convertToDay;
-
-    static {
-    HashMap<Integer,String> temp = new HashMap< Integer,String> ();
     
-    temp.put(1,"Sunday");
-    temp.put(2,"Monday");
-    temp.put(3,"Tuesday");
-    temp.put(4,"Wednesday");
-    temp.put(5,"Thursday");
-    temp.put(6,"Friday");
-    temp.put(7,"Saturday");
-    convertToDay =  Collections.unmodifiableMap(temp);
+    private double trainFair;
+    private int numberOfSeats;
+    private int numberOfCars;
+    private int trainNumber;
+    private String stationName;
+    private String stationLocation;
+    private static int countNumberOfSeats; 
+    private static int trainNumberGenerator =0; // hanstakhdemo f haga??
+    private String workingCondition; // function to check the working condition of the train
+
+    ArrayList<Integer> seats = new ArrayList<>();
+    
+    
+    void addNewSeat(int numberOfSeats){
+        //seats S1 = new seats(numberOfSeats);
+        seats.add(numberOfSeats);
+    
+    };
+    
+    void removeSeat(int seatNumber){
+    for(int i =0; i < seats.size();i++){
+    seats.get(i);
+    if ( seats.get(i)== seatNumber){
+    seats.remove(i);
+    }
+    }
+    }
+    
+    void updateSeat(int seatNumber){
+    Scanner seat = new Scanner(System.in);
+        System.out.println("please enter the seat number that you wish to update");
+        int updateSeat = seat.nextInt();
+        
+        for (int i =0 ; i < seats.size();i++){
+        seats.get(i);
+        if (seats.get(i)== seatNumber){
+        int temp;
+        temp = seat.nextInt();
+        }
+        }
     }
 
-    private String startCity;
-    private String endCity;
-    private HashMap<String,Integer> operatingdays;
-    private Double trianFare;
-    private static int trainNumberGenerator =0;
-    private int trainNumber;
-    private int numberOfSeats;
+    public static int getCountNumberOfSeats() {
+        return countNumberOfSeats;
+    }
 
-    public Train(String startCity, String endCity, int trainNumber, int numberOfSeats) {
-        this.startCity = startCity;
-        this.endCity = endCity;
-        this.trainNumber = trainNumber;
+    public static void setCountNumberOfSeats(int countNumberOfSeats) {
+        Train.countNumberOfSeats = countNumberOfSeats;
+    }
+
+    public String getWorkingCondition() {
+        return workingCondition;
+    }
+
+    public void setWorkingCondition(String workingCondition) {
+        this.workingCondition = workingCondition;
+    }
+
+    public ArrayList<Integer> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(ArrayList<Integer> seats) {
+        this.seats = seats;
+    }
+
+   
+    
+    
+    
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
+    public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
-    
-    public String getStartCity() {
-        return startCity;
+
+    public int getNumberOfCars() {
+        return numberOfCars;
     }
 
-    public void setStartCity(String startCity) {
-        this.startCity = startCity;
-    }
-
-    public String getEndCity() {
-        return endCity;
-    }
-
-    public void setEndCity(String endCity) {
-        this.endCity = endCity;
-    }
-
-    public HashMap<String, Integer> getOperatingdays() {
-        return operatingdays;
-    }
-
-    public void setOperatingdays(HashMap<String, Integer> operatingdays) {
-        this.operatingdays = operatingdays;
-    }
-
-    public Double getTrianFare() {
-        return trianFare;
-    }
-
-    public void setTrianFare(Double trianFare) {
-        this.trianFare = trianFare;
-    }
-
-    public static int getTrainNumberGenerator() {
-        return trainNumberGenerator;
-    }
-
-    public static void setTrainNumberGenerator(int trainNumberGenerator) {
-        Train.trainNumberGenerator = trainNumberGenerator;
+    public void setNumberOfCars(int numberOfCars) {
+        this.numberOfCars = numberOfCars;
     }
 
     public int getTrainNumber() {
@@ -92,30 +111,46 @@ class Train {
         this.trainNumber = trainNumber;
     }
 
-    public int getNumberOfSeats() {
-        return numberOfSeats;
+    public String getStationName() {
+        return stationName;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
+    public void setStationName(String stationName) {
+        this.stationName = stationName;
+    }
+
+    public String getStationLocation() {
+        return stationLocation;
+    }
+
+    public void setStationLocation(String stationLocation) {
+        this.stationLocation = stationLocation;
+    }
+
+    public Train(int numberOfSeats, int numberOfCars, int trainNumber, String stationName, String stationLocation,String workingCondition) {
         this.numberOfSeats = numberOfSeats;
+        this.numberOfCars = numberOfCars;
+        this.trainNumber = trainNumber;
+        this.stationName = stationName;
+        this.stationLocation = stationLocation;
+        this.workingCondition = workingCondition;
+    }
+
+    @Override
+    public String toString() {
+        return "Train{" + "numberOfSeats=" + numberOfSeats + ", numberOfCars=" + numberOfCars + ", trainNumber=" + trainNumber + ", stationName=" + stationName + ", stationLocation=" + stationLocation + '}';
     }
     
-//    protected void setOperatingDay(int Days){
-//    operatingdays = new HashMap < String, Integer> ();
-//    int temp = Days;
-//    
-//    while(temp!=0){
-//    int rem = temp%10;
-//    String s = convertToDay.get(rem);
-//    operatingdays.put(s,1);
-//    temp = temp/10;
-//    }
-//    }
+    //public static int getTrainNumberGenerator() {
+    //    return trainNumberGenerator;
+    //}
+
+    //public static void setTrainNumberGenerator(int trainNumberGenerator) {
+    //    Train.trainNumberGenerator = trainNumberGenerator;
+    //}
+    Train(){
+    countNumberOfSeats++;
+    //trainNumber = trainNumberGenerator;
+    }
     
-    
-    Train()
-    {
-    trainNumberGenerator++;
-    trainNumber = trainNumberGenerator;
-    };
 }
